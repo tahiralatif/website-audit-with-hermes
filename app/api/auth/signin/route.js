@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { logServerError } from '@/lib/logger';
 
 export async function POST(request) {
   try {
@@ -31,7 +32,7 @@ export async function POST(request) {
 
     response.cookies.set('token', token, {
       httpOnly: true,
-      secure: false,
+      secure: true,
       sameSite: 'lax',
       maxAge: 60 * 60 * 24 * 30,
       path: '/',
@@ -39,6 +40,7 @@ export async function POST(request) {
 
     return response;
   } catch (err) {
+    logServerError('POST /api/auth/signin', err.message);
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
 }

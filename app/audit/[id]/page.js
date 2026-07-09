@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import AuditView from './audit-view';
 
 export default async function AuditPage({ params }) {
@@ -46,7 +47,7 @@ export default async function AuditPage({ params }) {
           }}>
             This audit does not exist or has been removed.
           </p>
-          <a href="/" style={{
+          <Link href="/" style={{
             display: 'inline-flex',
             alignItems: 'center',
             gap: '0.35rem',
@@ -54,7 +55,7 @@ export default async function AuditPage({ params }) {
             fontWeight: 600,
             textDecoration: 'none',
             transition: 'color 0.25s'
-          }}>← Back to Home</a>
+          }}>← Back to Home</Link>
         </div>
       </div>
     );

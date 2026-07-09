@@ -1,22 +1,20 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import styles from './audit-view.module.css';
 
 export default function AuditView({ audit: initialAudit }) {
   const [audit, setAudit] = useState(initialAudit);
-  const [polling, setPolling] = useState(false);
 
   useEffect(() => {
     if (audit.status === 'pending' || audit.status === 'running') {
-      setPolling(true);
       const interval = setInterval(async () => {
         const res = await fetch(`/api/audit/${audit.id}`);
         const data = await res.json();
         setAudit(data);
         if (data.status === 'completed' || data.status === 'error') {
           clearInterval(interval);
-          setPolling(false);
         }
       }, 2000);
       return () => clearInterval(interval);
@@ -29,7 +27,7 @@ export default function AuditView({ audit: initialAudit }) {
         <div className={styles.errorCard}>
           <h2>Audit Failed</h2>
           <p>{audit.error}</p>
-          <a href="/" className={styles.backLink}>← Back to Home</a>
+          <Link href="/" className={styles.backLink}>← Back to Home</Link>
         </div>
       </div>
     );
@@ -56,7 +54,7 @@ export default function AuditView({ audit: initialAudit }) {
       <div className={styles.heroOrb1}></div>
       <div className={styles.heroOrb2}></div>
 
-      <a href="/" className={styles.backLink}>← Back to Home</a>
+      <Link href="/" className={styles.backLink}>← Back to Home</Link>
       <h1 className={styles.url}>{audit.url}</h1>
 
       {showUnreachableBanner && (

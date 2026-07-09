@@ -7,24 +7,30 @@ const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Website Audit Portal',
-  description: 'Analyze your website for SEO, Performance, Security, and Accessibility',
+  title: 'Website Audit Portal — Analyze SEO, Performance, Security & Accessibility',
+  description:
+    'Free website audit tool. Analyze any URL for SEO issues, performance metrics (Lighthouse, FCP, LCP), security headers, TLS certificates, and WCAG accessibility compliance.',
+  keywords: ['website audit', 'SEO analysis', 'Lighthouse', 'performance', 'security', 'accessibility', 'WCAG'],
+  authors: [{ name: 'Tahir', url: 'https://github.com/tahiralatif' }],
+  creator: 'Tahir',
   metadataBase: new URL('https://server.14.jugaar.ai'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Website Audit Portal',
-    description: 'Analyze your website for SEO, Performance, Security, and Accessibility issues. Get scored, graded, and actionable suggestions.',
-    url: 'https://server.14.jugaar.ai',
-    siteName: 'Website Audit Portal',
     type: 'website',
     locale: 'en_US',
+    url: 'https://server.14.jugaar.ai',
+    siteName: 'Website Audit Portal',
+    title: 'Website Audit Portal — Analyze SEO, Performance, Security & Accessibility',
+    description:
+      'Free website audit tool. Analyze any URL for SEO issues, performance metrics, security headers, and WCAG accessibility compliance.',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Website Audit Portal',
-    description: 'Analyze your website for SEO, Performance, Security, and Accessibility issues. Get scored, graded, and actionable suggestions.',
+    description:
+      'Analyze any URL for SEO, Performance, Security, and Accessibility issues in seconds.',
   },
   robots: {
     index: true,
@@ -55,6 +61,8 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <link rel="canonical" href="https://server.14.jugaar.ai" />
+        <meta name="theme-color" content="#0a0a1a" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -63,7 +71,7 @@ export default async function RootLayout({ children }) {
               "@type": "WebApplication",
               "name": "Website Audit Portal",
               "url": "https://server.14.jugaar.ai",
-              "description": "Analyze your website for SEO, Performance, Security, and Accessibility issues. Get scored, graded, and actionable suggestions.",
+              "description": "Free website audit tool. Analyze any URL for SEO issues, performance metrics, security headers, TLS certificates, and WCAG accessibility compliance.",
               "applicationCategory": "DeveloperApplication",
               "operatingSystem": "Web",
               "offers": {
