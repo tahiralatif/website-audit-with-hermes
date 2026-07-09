@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-export function middleware(request) {
+export function middleware(_request) {
   const response = NextResponse.next();
 
   // HSTS — force HTTPS for 1 year, include subdomains

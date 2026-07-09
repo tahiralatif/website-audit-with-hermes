@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import styles from './auth-nav.module.css';
 
 export default function AuthNav({ user: initialUser }) {
@@ -24,7 +25,7 @@ export default function AuthNav({ user: initialUser }) {
 
   return (
     <nav className={styles.nav} role="navigation" aria-label="Main navigation">
-      <a href="/" className={styles.logo} aria-label="Audit Portal - Home">Audit Portal</a>
+      <Link href="/" className={styles.logo} aria-label="Audit Portal - Home">Audit Portal</Link>
       <div className={styles.links}>
         <a href="/history" className={styles.link} aria-label="View audit history">History</a>
         {user ? (
